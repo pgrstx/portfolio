@@ -2,29 +2,71 @@
    effects.js — cursor glow, magnetic buttons, grain, terminal
    ============================================================ */
 
-/* ── Cursor Glow ─────────────────────────────────────────── */
-(function initCursorGlow() {
-  const glow = document.getElementById('cursorGlow');
-  if (!glow || window.matchMedia('(pointer: coarse)').matches) return;
+/* ── Custom Cursor (dot + ring + glow) ───────────────────── */
+(function initCursor() {
+  // Skip on touch devices
+  if (window.matchMedia('(pointer: coarse)').matches) return;
 
-  let raf;
-  let tx = 0, ty = 0, cx = 0, cy = 0;
+  const dot  = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  const glow = document.getElementById('cursorGlow');
+  if (!dot || !ring || !glow) return;
+
+  // Mouse position (raw — dot snaps here immediately)
+  let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+  // Lagged position for ring and glow
+  let rx = mx, ry = my;
+  let gx = mx, gy = my;
 
   document.addEventListener('mousemove', (e) => {
-    tx = e.clientX;
-    ty = e.clientY;
+    mx = e.clientX;
+    my = e.clientY;
+    // Dot: instant
+    dot.style.left = mx + 'px';
+    dot.style.top  = my + 'px';
   });
 
   function lerp(a, b, t) { return a + (b - a) * t; }
 
   function animate() {
-    cx = lerp(cx, tx, 0.08);
-    cy = lerp(cy, ty, 0.08);
-    glow.style.left = cx + 'px';
-    glow.style.top  = cy + 'px';
-    raf = requestAnimationFrame(animate);
+    // Ring lags behind mouse slightly
+    rx = lerp(rx, mx, 0.18);
+    ry = lerp(ry, my, 0.18);
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+
+    // Glow lags behind a lot (soft ambient)
+    gx = lerp(gx, mx, 0.06);
+    gy = lerp(gy, my, 0.06);
+    glow.style.left = gx + 'px';
+    glow.style.top  = gy + 'px';
+
+    requestAnimationFrame(animate);
   }
   animate();
+
+  // Expand ring on interactive elements
+  const hoverTargets = 'a, button, [data-magnetic], .skill-tag, .filter-btn, .project-card, .achievement-card, .nav__link';
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest(hoverTargets)) {
+      document.body.classList.add('cursor-hover');
+    }
+  });
+  document.addEventListener('mouseout', (e) => {
+    if (e.target.closest(hoverTargets)) {
+      document.body.classList.remove('cursor-hover');
+    }
+  });
+
+  // Hide when leaving window
+  document.addEventListener('mouseleave', () => {
+    dot.style.opacity  = '0';
+    ring.style.opacity = '0';
+  });
+  document.addEventListener('mouseenter', () => {
+    dot.style.opacity  = '1';
+    ring.style.opacity = '1';
+  });
 })();
 
 /* ── Magnetic Buttons ────────────────────────────────────── */
