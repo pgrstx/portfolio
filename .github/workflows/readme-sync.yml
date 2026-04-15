@@ -1,0 +1,25 @@
+name: Weekly Refresh
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Every Sunday at midnight UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Trigger refresh commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          echo "Last refreshed: $(date -u)" > .last-refresh
+          git add .last-refresh
+          git commit -m "chore: weekly refresh [skip ci]" || echo "Nothing to commit"
+          git push
