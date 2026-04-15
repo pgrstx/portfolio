@@ -1,0 +1,105 @@
+/* ============================================================
+   PRANAV GUPTA PORTFOLIO — animations.css
+   All @keyframe definitions
+   ============================================================ */
+
+/* ── Cursor blink ────────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Grain shift ─────────────────────────────────────────── */
+@keyframes grainShift {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-1%, 1%); }
+  50%  { transform: translate(1%, -1%); }
+  75%  { transform: translate(-1%, -1%); }
+  100% { transform: translate(1%, 1%); }
+}
+
+/* ── Pulse (eyebrow dot, live indicator) ─────────────────── */
+@keyframes pulse {
+  0%, 100% { opacity: 1;   box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+  50%       { opacity: 0.6; box-shadow: 0 0 0 6px rgba(255,255,255,0); }
+}
+
+/* ── Hero grid pulse ─────────────────────────────────────── */
+@keyframes gridPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* ── Scroll bounce (hero hint arrow) ────────────────────── */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50%       { transform: translateY(8px); opacity: 1; }
+}
+
+/* ── Shimmer (skeleton loading) ─────────────────────────── */
+@keyframes shimmer {
+  0%   { background: linear-gradient(90deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%); background-size: 200% 100%; background-position: -100% 0; }
+  100% { background: linear-gradient(90deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%); background-size: 200% 100%; background-position: 100% 0; }
+}
+
+/* ── Glitch effect ───────────────────────────────────────── */
+.glitch {
+  position: relative;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--text-primary);
+}
+.glitch::before {
+  animation: glitchTop 4s infinite linear;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  transform: translate(-2px, 0);
+}
+.glitch::after {
+  animation: glitchBottom 4s infinite linear;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  transform: translate(2px, 0);
+}
+
+@keyframes glitchTop {
+  0%,  89%, 91%, 93%, 100% { transform: translate(0, 0) skewX(0deg); opacity: 1; }
+  90%  { transform: translate(-3px, -1px) skewX(-3deg); opacity: 0.8; }
+  92%  { transform: translate(3px, 0px)  skewX(3deg);  opacity: 0.6; }
+}
+
+@keyframes glitchBottom {
+  0%,  87%, 89%, 95%, 100% { transform: translate(0, 0) skewX(0deg); opacity: 1; }
+  88%  { transform: translate(3px, 1px) skewX(3deg);  opacity: 0.7; }
+  94%  { transform: translate(-2px, 0px) skewX(-2deg); opacity: 0.8; }
+}
+
+/* ── Typewriter cursor ───────────────────────────────────── */
+@keyframes typewriterCursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Fade in up (general) ────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scale in ────────────────────────────────────────────── */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Hero content stagger ────────────────────────────────── */
+.hero__eyebrow   { animation: fadeInUp 0.8s 0.2s both; }
+.hero__name      { animation: fadeInUp 0.8s 0.4s both; }
+.hero__typewriter{ animation: fadeInUp 0.8s 0.6s both; }
+.hero__sub       { animation: fadeInUp 0.8s 0.7s both; }
+.hero__ctas      { animation: fadeInUp 0.8s 0.9s both; }
+.hero__scroll-hint { animation: fadeInUp 0.8s 1.2s both; }
