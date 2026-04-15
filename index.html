@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pranav Gupta — AI/ML Builder & SAR Intern</title>
+  <meta name="description" content="Pranav Gupta — B.Tech CSE at Shiv Nadar University. BEL SAR Processing Intern, AI/ML Builder, State-level Roll Ball Captain." />
+  <meta name="keywords" content="Pranav Gupta, AI, ML, LangGraph, OpenCV, portfolio, Shiv Nadar University, BEL intern, SAR processing" />
+  <meta name="author" content="Pranav Gupta" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pranav Gupta — AI/ML Builder" />
+  <meta property="og:description" content="B.Tech CSE @ Shiv Nadar University. BEL SAR Intern. AI/ML Builder." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pgrstx.github.io/portfolio" />
+  <meta property="og:image" content="assets/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pranav Gupta — AI/ML Builder" />
+  <meta name="twitter:description" content="B.Tech CSE @ Shiv Nadar University. BEL SAR Intern. AI/ML Builder." />
+  <meta name="twitter:image" content="assets/og-image.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+  <!-- Overlays -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+  <div class="scanlines-overlay" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__container">
+      <a href="#hero" class="nav__logo">
+        <span class="nav__logo-bracket">[</span>pg<span class="nav__logo-bracket">]</span>
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#experience" class="nav__link">Experience</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#achievements" class="nav__link">Achievements</a></li>
+        <li><a href="#connect" class="nav__link">Connect</a></li>
+      </ul>
+      <button class="nav__hamburger" id="navHamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="hero__grid-bg" aria-hidden="true"></div>
+    <div class="hero__content">
+      <div class="hero__eyebrow">
+        <span class="hero__eyebrow-dot"></span>
+        <span>Available for opportunities</span>
+      </div>
+      <h1 class="hero__name glitch" data-text="Pranav Gupta">Pranav Gupta</h1>
+      <div class="hero__typewriter">
+        <span class="hero__typewriter-prefix">$ </span>
+        <span class="hero__typewriter-text" id="typewriterText"></span>
+        <span class="hero__cursor">|</span>
+      </div>
+      <p class="hero__sub">
+        B.Tech CSE @ Shiv Nadar University &nbsp;&middot;&nbsp; Building AI systems that matter
+      </p>
+      <div class="hero__ctas">
+        <a href="#projects" class="btn btn--primary magnetic" data-magnetic>
+          <i data-lucide="code-2"></i> View Projects
+        </a>
+        <a href="assets/cv.pdf" class="btn btn--secondary magnetic" data-magnetic download>
+          <i data-lucide="download"></i> Download CV
+        </a>
+        <a href="#connect" class="btn btn--ghost magnetic" data-magnetic>
+          <i data-lucide="arrow-right"></i> Connect
+        </a>
+      </div>
+    </div>
+    <div class="hero__scroll-hint" aria-label="Scroll down">
+      <span>scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section reveal">
+    <div class="container">
+      <h2 class="section__title">
+        <span class="section__title-num">01.</span> About
+      </h2>
+      <div class="about__grid">
+        <div class="about__bio">
+          <p>
+            I'm a Computer Science student building at the intersection of <strong>AI, satellite data, and autonomous systems</strong>.
+            Currently a SAR Processing Intern at <strong>BEL (Central Research Laboratory)</strong>, where I build Python pipelines
+            for Sentinel-1 satellite imagery and UAV ground-control systems.
+          </p>
+          <p>
+            I build AI tools that solve real problems — from agentic email managers to real-time vision pipelines.
+            When I'm not coding, I'm probably captaining a Roll Ball team or deep in a research rabbit hole.
+          </p>
+          <div class="about__stats">
+            <div class="stat-card">
+              <span class="stat-card__num" data-count="92.3" data-suffix="%">0</span>
+              <span class="stat-card__label">JEE Percentile</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__num" data-count="7" data-suffix="th">0</span>
+              <span class="stat-card__label">ASME Nationally</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__num" data-count="200" data-suffix="+">0</span>
+              <span class="stat-card__label">Pages Research</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__num" data-count="8" data-suffix="">0</span>
+              <span class="stat-card__label">Projects Built</span>
+            </div>
+          </div>
+        </div>
+        <div class="about__education">
+          <h3 class="about__sub-title">Education</h3>
+          <div class="edu-table">
+            <div class="edu-row reveal-child">
+              <div class="edu-row__degree">B.Tech CSE</div>
+              <div class="edu-row__institute">Shiv Nadar Institute of Eminence</div>
+              <div class="edu-row__score">7.62 CGPA</div>
+              <div class="edu-row__year">2024–2028</div>
+            </div>
+            <div class="edu-row reveal-child">
+              <div class="edu-row__degree">Class XII · CBSE</div>
+              <div class="edu-row__institute">Seth Anandram Jaipuria School, Ghaziabad</div>
+              <div class="edu-row__score">93%</div>
+              <div class="edu-row__year">2024</div>
+            </div>
+            <div class="edu-row reveal-child">
+              <div class="edu-row__degree">Class X · CBSE</div>
+              <div class="edu-row__institute">Amity International School, Vasundhara</div>
+              <div class="edu-row__score">92%</div>
+              <div class="edu-row__year">2022</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section reveal">
+    <div class="container">
+      <h2 class="section__title">
+        <span class="section__title-num">02.</span> Experience
+      </h2>
+      <div class="timeline">
+        <div class="timeline__line" aria-hidden="true"></div>
+
+        <article class="timeline__item reveal-child">
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <div>
+                <h3 class="timeline__role">SAR Processing Intern</h3>
+                <p class="timeline__org">Central Research Laboratory, BEL &mdash; GAD</p>
+              </div>
+              <span class="timeline__date">Jun 2025 &ndash; Aug 2025</span>
+            </div>
+            <ul class="timeline__bullets">
+              <li>Built Python pipelines for Sentinel-1 SAR satellite datasets &mdash; automated ingestion, preprocessing, and visualization</li>
+              <li>Developed geospatial navigation apps using Copernicus satellite imagery for UAV targeting</li>
+              <li>Implemented drone-GCS pipelines using QGroundControl, MAVLink, and Pixhawk</li>
+              <li>Automated data visualization in Python and C for mission-critical outputs</li>
+            </ul>
+            <div class="timeline__tags">
+              <span class="tag">SAR Processing</span>
+              <span class="tag">Python</span>
+              <span class="tag">Sentinel-1</span>
+              <span class="tag">UAV</span>
+              <span class="tag">MAVLink</span>
+              <span class="tag">Geospatial</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline__item reveal-child">
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <div>
+                <h3 class="timeline__role">Research Intern</h3>
+                <p class="timeline__org">DRIIV &mdash; Delhi Research Implementation and Innovation &middot; IIT Delhi</p>
+              </div>
+              <span class="timeline__date">Dec 2024 &ndash; Jan 2025</span>
+            </div>
+            <ul class="timeline__bullets">
+              <li>Authored a 200-page technical research report on UAV/UAS/eVTOL/UTM systems landscape</li>
+              <li>Published technical blog posts on driiv.co.in covering autonomous systems policy</li>
+              <li>Conducted strategic analysis, market sizing, and data visualization for aviation tech</li>
+              <li>Policy research on UTM regulatory frameworks across India, EU, and USA</li>
+            </ul>
+            <div class="timeline__tags">
+              <span class="tag">UAV Research</span>
+              <span class="tag">IIT Delhi</span>
+              <span class="tag">Technical Writing</span>
+              <span class="tag">eVTOL</span>
+              <span class="tag">UTM Policy</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section reveal">
+    <div class="container">
+      <h2 class="section__title">
+        <span class="section__title-num">03.</span> Projects
+        <span class="github-live-indicator" id="githubLiveIndicator" title="Live from GitHub">
+          <span class="github-live-dot"></span>
+          <span class="github-live-text">Live from GitHub</span>
+        </span>
+      </h2>
+
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai-ml">AI / ML</button>
+        <button class="filter-btn" data-filter="systems">Systems</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="research">Research</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Skeleton loading state -->
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+
+      <p class="github-timestamp" id="githubTimestamp"></p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section reveal">
+    <div class="container">
+      <h2 class="section__title">
+        <span class="section__title-num">04.</span> Skills
+      </h2>
+      <div class="skills__layout">
+        <div class="skills__groups">
+          <div class="skill-group reveal-child">
+            <h3 class="skill-group__title">AI &amp; LLMs</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Prompt Engineering</span>
+              <span class="skill-tag">JSON Schemas</span>
+              <span class="skill-tag">LLM Evaluation</span>
+              <span class="skill-tag">Constrained Generation</span>
+              <span class="skill-tag">OpenAI API</span>
+              <span class="skill-tag">RAG</span>
+            </div>
+          </div>
+          <div class="skill-group reveal-child">
+            <h3 class="skill-group__title">Frameworks</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">LangGraph</span>
+              <span class="skill-tag">LangChain</span>
+              <span class="skill-tag">LangSmith</span>
+              <span class="skill-tag">Microsoft Graph API</span>
+              <span class="skill-tag">Streamlit</span>
+            </div>
+          </div>
+          <div class="skill-group reveal-child">
+            <h3 class="skill-group__title">Computer Vision</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">OpenCV</span>
+              <span class="skill-tag">MediaPipe</span>
+              <span class="skill-tag">Real-time Gesture Recognition</span>
+              <span class="skill-tag">Landmark Detection</span>
+            </div>
+          </div>
+          <div class="skill-group reveal-child">
+            <h3 class="skill-group__title">Languages</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">C</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">HTML / CSS</span>
+            </div>
+          </div>
+          <div class="skill-group reveal-child">
+            <h3 class="skill-group__title">Tools &amp; Infra</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">Jupyter</span>
+              <span class="skill-tag">SQLite</span>
+              <span class="skill-tag">Linux</span>
+              <span class="skill-tag">Node.js</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terminal block -->
+        <div class="terminal reveal-child">
+          <div class="terminal__bar">
+            <span class="terminal__btn terminal__btn--red"></span>
+            <span class="terminal__btn terminal__btn--yellow"></span>
+            <span class="terminal__btn terminal__btn--green"></span>
+            <span class="terminal__title">pranav@portfolio ~ </span>
+          </div>
+          <div class="terminal__body" id="terminalBody">
+            <div class="terminal__line">
+              <span class="terminal__prompt">$</span>
+              <span class="terminal__cmd" id="terminalCmd"></span>
+              <span class="terminal__tcursor">&#9607;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements" class="section reveal">
+    <div class="container">
+      <h2 class="section__title">
+        <span class="section__title-num">05.</span> Achievements
+      </h2>
+      <div class="achievements-grid">
+        <div class="achievement-card reveal-child">
+          <div class="achievement-card__icon"><i data-lucide="trophy"></i></div>
+          <h3 class="achievement-card__title">ASME SDC 2024&ndash;25</h3>
+          <p class="achievement-card__desc">7th place nationally among 100+ competing teams. Built an autonomous multi-sensor nut sorter with classification pipeline.</p>
+          <span class="achievement-card__badge">Engineering &middot; National</span>
+        </div>
+        <div class="achievement-card reveal-child">
+          <div class="achievement-card__icon"><i data-lucide="bar-chart-2"></i></div>
+          <h3 class="achievement-card__title">JEE Mains 2024</h3>
+          <p class="achievement-card__desc">92.3 percentile &mdash; top 7.7% out of 1.2 million+ aspirants in India's most competitive engineering entrance.</p>
+          <span class="achievement-card__badge">Academic &middot; National</span>
+        </div>
+        <div class="achievement-card reveal-child">
+          <div class="achievement-card__icon"><i data-lucide="compass"></i></div>
+          <h3 class="achievement-card__title">Duke of Edinburgh Bronze</h3>
+          <p class="achievement-card__desc">International award recognizing skills, volunteering, physical activity, and expedition. Completed in 2022.</p>
+          <span class="achievement-card__badge">International Award</span>
+        </div>
+        <div class="achievement-card reveal-child">
+          <div class="achievement-card__icon"><i data-lucide="zap"></i></div>
+          <h3 class="achievement-card__title">State Roll Ball Captain</h3>
+          <p class="achievement-card__desc">State-level athlete and team captain in Roll Ball (skating sport) from 2019&ndash;2022. Represented school at state competitions.</p>
+          <span class="achievement-card__badge">Sports &middot; State Level</span>
+        </div>
+        <div class="achievement-card reveal-child">
+          <div class="achievement-card__icon"><i data-lucide="users"></i></div>
+          <h3 class="achievement-card__title">Volunteer Leadership</h3>
+          <p class="achievement-card__desc">Girl Up SNU (Human Rights advocacy) + Duke of Edinburgh volunteer work for Poverty Alleviation initiatives.</p>
+          <span class="achievement-card__badge">Community</span>
+        </div>
+        <div class="achievement-card reveal-child">
+          <div class="achievement-card__icon"><i data-lucide="activity"></i></div>
+          <h3 class="achievement-card__title">School Basketball</h3>
+          <p class="achievement-card__desc">School basketball team member for 3 consecutive years &mdash; combining technical skill and teamwork on the court.</p>
+          <span class="achievement-card__badge">Sports &middot; School</span>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="certs-strip reveal-child">
+        <h3 class="certs-strip__title">Certifications</h3>
+        <div class="certs-strip__list">
+          <div class="cert-badge">
+            <i data-lucide="award"></i>
+            <span>Data Science Orientation</span>
+            <span class="cert-badge__year">2026</span>
+          </div>
+          <div class="cert-badge">
+            <i data-lucide="cloud"></i>
+            <span>AWS Cloud Foundation</span>
+            <span class="cert-badge__year">2026</span>
+          </div>
+          <div class="cert-badge">
+            <i data-lucide="server"></i>
+            <span>AWS Cloud Architecting</span>
+            <span class="cert-badge__year">2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECT -->
+  <section id="connect" class="section reveal">
+    <div class="container">
+      <h2 class="section__title">
+        <span class="section__title-num">06.</span> Connect
+      </h2>
+      <div class="connect__grid">
+        <div class="connect__left">
+          <p class="connect__headline">Let's build something.</p>
+          <p class="connect__sub">
+            I'm open to internships, research collabs, and interesting projects.
+            Especially anything involving AI, satellite data, or autonomous systems.
+          </p>
+          <div class="connect__links">
+            <a href="mailto:guptapranav2006@gmail.com" class="connect-link magnetic" data-magnetic>
+              <i data-lucide="mail"></i>
+              <span>guptapranav2006@gmail.com</span>
+            </a>
+            <a href="https://github.com/pgrstx" target="_blank" rel="noopener noreferrer" class="connect-link magnetic" data-magnetic>
+              <i data-lucide="github"></i>
+              <span>github.com/pgrstx</span>
+            </a>
+            <a href="https://www.linkedin.com/in/pgrstx" target="_blank" rel="noopener noreferrer" class="connect-link magnetic" data-magnetic>
+              <i data-lucide="linkedin"></i>
+              <span>linkedin.com/in/pgrstx</span>
+            </a>
+            <a href="tel:+919873168747" class="connect-link magnetic" data-magnetic>
+              <i data-lucide="phone"></i>
+              <span>+91 98731 68747</span>
+            </a>
+          </div>
+          <a href="mailto:guptapranav2006@gmail.com" class="btn btn--primary magnetic" data-magnetic style="margin-top:2rem">
+            <i data-lucide="send"></i> Send a Message
+          </a>
+        </div>
+        <div class="connect__right">
+          <div class="linkedin-badge-wrapper">
+            <div class="badge-base LI-profile-badge"
+              data-locale="en_US"
+              data-size="medium"
+              data-theme="dark"
+              data-type="VERTICAL"
+              data-vanity="pgrstx"
+              data-version="v1">
+              <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/pgrstx" target="_blank" rel="noopener noreferrer">Pranav Gupta on LinkedIn</a>
+            </div>
+          </div>
+          <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">&copy; 2026 Pranav Gupta &mdash; Built with vanilla HTML/CSS/JS</p>
+        <div class="footer__links">
+          <a href="https://github.com/pgrstx/portfolio" target="_blank" rel="noopener noreferrer">Source</a>
+          <a href="#hero">Back to top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/effects.js"></script>
+  <script src="js/github.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
