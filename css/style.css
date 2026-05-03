@@ -737,6 +737,18 @@ body.cursor-hover .cursor-dot {
 .project-card__link:hover { color: var(--text-primary); }
 .project-card__link svg { width: 16px; height: 16px; }
 
+.project-card__label-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
 .project-card__desc {
   font-size: 0.88rem;
   color: var(--text-secondary);

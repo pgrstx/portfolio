@@ -3,7 +3,7 @@
    ============================================================ */
 
 const GITHUB_USERNAME = 'pgrstx';
-const EXCLUDED_REPOS  = ['pgrstx', 'portfolio', 'dums-editorial', 'just-dums'];
+const EXCLUDED_REPOS  = ['pgrstx', 'portfolio', 'dums-editorial', 'just-dums', 'Fashion-Bot'];
 const CACHE_KEY       = 'pg_github_repos_v2';
 const CACHE_TTL       = 5 * 60 * 1000; // 5 minutes
 
@@ -64,6 +64,21 @@ const FEATURED_PROJECTS = [
     description: 'LangSmith evaluation framework for academic ML project. LLM tracing, dataset management, and evaluation pipelines.',
     category: 'ai-ml',
     status: '2026',
+  },
+  {
+    name: 'PranavGupta_langgraph_MAT496',
+    display: 'LangGraph MAT496',
+    description: 'LangGraph multi-agent pipeline for academic project. Stateful agent graphs, conditional edges, and tool-call orchestration.',
+    category: 'ai-ml',
+    status: '2025',
+  },
+  {
+    name: '__asme-sdc',           // sentinel: no real GitHub repo
+    display: 'ASME SDC — Autonomous Nut Sorter',
+    description: 'Represented Shiv Nadar University at ASME SDC 2024-25. Engineered a fully autonomous ball-bearing sorter — multi-sensor material/size classification, 6-station actuation pipeline. 7th place nationally, 100+ teams.',
+    category: 'research',
+    status: '2024',
+    noRepo: true,
   },
 ];
 
@@ -137,7 +152,7 @@ function createProjectCard(proj, apiRepo, featured) {
   const stars   = apiRepo ? apiRepo.stargazers_count : 0;
   const forks   = apiRepo ? apiRepo.forks_count : 0;
   const updated = apiRepo ? formatDate(apiRepo.updated_at) : (proj.status || '');
-  const url     = apiRepo ? apiRepo.html_url : `https://github.com/${GITHUB_USERNAME}/${proj.name}`;
+  const url     = (!proj.noRepo && apiRepo) ? apiRepo.html_url : (!proj.noRepo ? `https://github.com/${GITHUB_USERNAME}/${proj.name}` : null);
   const color   = getLangColor(lang);
   const cat     = proj.category || 'other';
 
@@ -149,9 +164,7 @@ function createProjectCard(proj, apiRepo, featured) {
     ${featured ? '<div class="project-card__featured" title="Featured project"></div>' : ''}
     <div class="project-card__header">
       <h3 class="project-card__name">${name}</h3>
-      <a href="${url}" target="_blank" rel="noopener noreferrer" class="project-card__link" title="View on GitHub">
-        <i data-lucide="external-link"></i>
-      </a>
+      ${url ? `<a href="${url}" target="_blank" rel="noopener noreferrer" class="project-card__link" title="View on GitHub"><i data-lucide="external-link"></i></a>` : '<span class="project-card__label-badge">Competition</span>'}
     </div>
     <p class="project-card__desc">${desc || 'No description available.'}</p>
     <div class="project-card__footer">
@@ -177,7 +190,7 @@ function renderProjects(repos) {
 
   const repoMap = buildRepoMap(repos);
   const fragment = document.createDocumentFragment();
-  const featuredNames = new Set(FEATURED_PROJECTS.map(p => p.name));
+  const featuredNames = new Set(FEATURED_PROJECTS.filter(p => !p.noRepo).map(p => p.name));
 
   // 1. Featured projects first
   FEATURED_PROJECTS.forEach(proj => {
